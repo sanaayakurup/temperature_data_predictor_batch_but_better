@@ -1,0 +1,4 @@
+#steps 
+#made a venv 
+#activated it 
+#initialised the git repo on my local 
