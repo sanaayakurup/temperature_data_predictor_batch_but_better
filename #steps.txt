@@ -2,3 +2,5 @@
 #made a venv 
 #activated it 
 #initialised the git repo on my local 
+#create a .env file 
+#create a gitignoire file 
