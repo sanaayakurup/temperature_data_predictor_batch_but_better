@@ -1,0 +1,15 @@
+##For training and other 
+openmeteo-requests
+requests-cache
+retry-requests 
+numpy
+pandas
+plotly
+matplotlib
+scikit-learn
+optuna
+xgboost
+kaleido
+google-cloud-storage
+google-cloud-aiplatform
+#for Inf py script to be dockerised 

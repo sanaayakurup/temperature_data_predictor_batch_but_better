@@ -4,3 +4,11 @@
 #initialised the git repo on my local 
 #create a .env file 
 #create a gitignoire file 
+#created hopworks project for feature store
+#created the utilspy for the logger configs   
+#wrote the extract.py to extract data from the api for the given start and end dates. 
+#wrote the transform.py to clean the data 
+#Downloaded pyenv to manage python version dependencies better
+#made a venv using the pyenv in the powershell, and called that in vscode!
+
+
