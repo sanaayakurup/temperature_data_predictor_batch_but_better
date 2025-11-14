@@ -23,3 +23,68 @@ Traceback (most recent call last):
     fg_commit_id = [
                    ^
 IndexError: list index out of range
+2025-11-12 15:51:33,131 - app_logger - pipeline - INFO - Extracting data from API.
+2025-11-12 15:51:38,463 - app_logger - extract - INFO - 2025-11-12 15:51:38.463245:Data Pulled in for dates (Timestamp('2020-01-01 00:00:00+0000', tz='UTC'), Timestamp('2025-11-12 23:00:00+0000', tz='UTC'))
+2025-11-12 15:51:38,479 - app_logger - extract - INFO - 2025-11-12 15:51:38.479689:Data Pulled in for params {'latitude': [18.5204, 43.589], 'longitude': [73.8567, -79.6441], 'start_date': '2020-01-01', 'end_date': '2025-11-12', 'hourly': ['temperature_2m', 'rain', 'wind_speed_10m', 'pressure_msl']}
+2025-11-12 15:51:38,547 - app_logger - extract - INFO - 2025-11-12 15:51:38.547914:Data Pulled complete
+2025-11-12 15:51:38,641 - app_logger - pipeline - INFO - 2025-11-12 15:51:38.641148:Data Pull complete from the pipeline
+2025-11-12 15:51:38,671 - app_logger - pipeline - INFO - 2025-11-12 15:51:38.671243:Data Transformation started from the pipeline
+2025-11-12 15:51:38,903 - app_logger - pipeline - INFO - 2025-11-12 15:51:38.903710:Data Transformation completed from the pipeline
+2025-11-12 15:51:38,903 - app_logger - pipeline - INFO - 2025-11-12 15:51:38.903710:Data Validation started from the pipeline
+2025-11-12 15:51:38,919 - app_logger - pipeline - INFO - 2025-11-12 15:51:38.919916:Data Validation completed from the pipeline
+2025-11-12 15:51:38,929 - app_logger - pipeline - INFO - 2025-11-12 15:51:38.929898:Validated Data Loading started from the pipeline
+2025-11-12 15:51:49,628 - app_logger - load - INFO - 2025-11-12 15:51:49.628528:Connected to HP Feature store
+2025-11-12 15:55:09,311 - app_logger - pipeline - INFO - 2025-11-12 15:55:09.311357:Validated Data Loading completed from the pipeline
+2025-11-12 16:18:11,752 - app_logger - pipeline - INFO - Extracting data from API.
+2025-11-12 16:18:11,889 - app_logger - extract - INFO - 2025-11-12 16:18:11.885730:Data Pulled in for dates (Timestamp('2020-01-01 00:00:00+0000', tz='UTC'), Timestamp('2025-11-12 23:00:00+0000', tz='UTC'))
+2025-11-12 16:18:11,891 - app_logger - extract - INFO - 2025-11-12 16:18:11.891714:Data Pulled in for params {'latitude': [18.5204, 43.589], 'longitude': [73.8567, -79.6441], 'start_date': '2020-01-01', 'end_date': '2025-11-12', 'hourly': ['temperature_2m', 'rain', 'wind_speed_10m', 'pressure_msl']}
+2025-11-12 16:18:11,895 - app_logger - extract - INFO - 2025-11-12 16:18:11.895708:Data Pulled complete
+2025-11-12 16:18:11,902 - app_logger - pipeline - INFO - 2025-11-12 16:18:11.901756:Data Pull complete from the pipeline
+2025-11-12 16:18:11,908 - app_logger - pipeline - INFO - 2025-11-12 16:18:11.908712:Data Transformation started from the pipeline
+2025-11-12 16:18:11,970 - app_logger - pipeline - INFO - 2025-11-12 16:18:11.970982:Data Transformation completed from the pipeline
+2025-11-12 16:18:11,988 - app_logger - pipeline - INFO - 2025-11-12 16:18:11.988930:Data Validation started from the pipeline
+2025-11-12 16:18:11,991 - app_logger - pipeline - INFO - 2025-11-12 16:18:11.991930:Data Validation completed from the pipeline
+2025-11-12 16:18:11,995 - app_logger - pipeline - INFO - 2025-11-12 16:18:11.995932:Validated Data Loading started from the pipeline
+2025-11-12 16:18:13,186 - app_logger - load - INFO - 2025-11-12 16:18:13.186755:Connected to HP Feature store
+2025-11-12 16:22:24,629 - app_logger - utils - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Sanaaya\Desktop\temp_pred_batch_better_architecture\feature_pipeline\pipeline.py", line 43, in <module>
+    run_etl_pipeline(data_url,start_date,api_key,project_name,1)
+  File "C:\Users\Sanaaya\Desktop\temp_pred_batch_better_architecture\feature_pipeline\pipeline.py", line 39, in run_etl_pipeline
+    to_feature_store(transformed_data,api_key,project_name,version)
+  File "C:\Users\Sanaaya\Desktop\temp_pred_batch_better_architecture\feature_pipeline\load.py", line 109, in to_feature_store
+    energy_feature_group.compute_statistics()
+  File "C:\Users\Sanaaya\Desktop\temp_pred_batch_better_architecture\venv\Lib\site-packages\hsfs\feature_group.py", line 3695, in compute_statistics
+    fg_commit_id = [
+                   ^
+IndexError: list index out of range
+2025-11-12 16:54:23,301 - app_logger - pipeline - INFO - Extracting data from API.
+2025-11-12 16:54:23,423 - app_logger - extract - INFO - 2025-11-12 16:54:23.421136:Data Pulled in for dates (Timestamp('2020-01-01 00:00:00+0000', tz='UTC'), Timestamp('2025-11-12 23:00:00+0000', tz='UTC'))
+2025-11-12 16:54:23,434 - app_logger - extract - INFO - 2025-11-12 16:54:23.434757:Data Pulled in for params {'latitude': [18.5204, 43.589], 'longitude': [73.8567, -79.6441], 'start_date': '2020-01-01', 'end_date': '2025-11-12', 'hourly': ['temperature_2m', 'rain', 'wind_speed_10m', 'pressure_msl']}
+2025-11-12 16:54:23,448 - app_logger - extract - INFO - 2025-11-12 16:54:23.447821:Data Pulled complete
+2025-11-12 16:54:23,488 - app_logger - pipeline - INFO - 2025-11-12 16:54:23.488399:Data Pull complete from the pipeline
+2025-11-12 16:54:23,488 - app_logger - pipeline - INFO - 2025-11-12 16:54:23.488399:Data Transformation started from the pipeline
+2025-11-12 16:54:23,591 - app_logger - pipeline - INFO - 2025-11-12 16:54:23.591926:Data Transformation completed from the pipeline
+2025-11-12 16:54:23,593 - app_logger - pipeline - INFO - 2025-11-12 16:54:23.593926:Data Validation started from the pipeline
+2025-11-12 16:54:23,612 - app_logger - pipeline - INFO - 2025-11-12 16:54:23.612850:Data Validation completed from the pipeline
+2025-11-12 16:54:23,624 - app_logger - pipeline - INFO - 2025-11-12 16:54:23.624704:Validated Data Loading started from the pipeline
+2025-11-12 16:54:24,784 - app_logger - load - INFO - 2025-11-12 16:54:24.784054: Connected to Hopsworks Feature Store
+2025-11-12 16:57:23,838 - app_logger - load - INFO - 2025-11-12 16:57:23.838743: Inserted 102864 rows.
+2025-11-12 16:57:28,799 - app_logger - load - WARNING - 2025-11-12 16:57:28.799335: compute_statistics() failed or skipped — 'FeatureGroup' object has no attribute 'get_commit_details'. If you are trying to access a feature, fall back on using the `get_feature` method.
+2025-11-12 16:57:28,800 - app_logger - pipeline - INFO - 2025-11-12 16:57:28.800333:Validated Data Loading completed from the pipeline
+2025-11-12 17:02:13,192 - app_logger - pipeline - INFO - Extracting data from API.
+2025-11-12 17:02:13,486 - app_logger - extract - INFO - 2025-11-12 17:02:13.486765:Data Pulled in for dates (Timestamp('2020-01-01 00:00:00+0000', tz='UTC'), Timestamp('2025-11-12 23:00:00+0000', tz='UTC'))
+2025-11-12 17:02:13,494 - app_logger - extract - INFO - 2025-11-12 17:02:13.494848:Data Pulled in for params {'latitude': [18.5204, 43.589], 'longitude': [73.8567, -79.6441], 'start_date': '2020-01-01', 'end_date': '2025-11-12', 'hourly': ['temperature_2m', 'rain', 'wind_speed_10m', 'pressure_msl']}
+2025-11-12 17:02:13,503 - app_logger - extract - INFO - 2025-11-12 17:02:13.503367:Data Pulled complete
+2025-11-12 17:02:13,514 - app_logger - pipeline - INFO - 2025-11-12 17:02:13.514682:Data Pull complete from the pipeline
+2025-11-12 17:02:13,524 - app_logger - pipeline - INFO - 2025-11-12 17:02:13.524050:Data Transformation started from the pipeline
+2025-11-12 17:02:13,595 - app_logger - pipeline - INFO - 2025-11-12 17:02:13.595539:Data Transformation completed from the pipeline
+2025-11-12 17:02:13,595 - app_logger - pipeline - INFO - 2025-11-12 17:02:13.595539:Data Validation started from the pipeline
+2025-11-12 17:02:13,595 - app_logger - pipeline - INFO - 2025-11-12 17:02:13.595539:Data Validation completed from the pipeline
+2025-11-12 17:02:13,595 - app_logger - pipeline - INFO - 2025-11-12 17:02:13.595539:Validated Data Loading started from the pipeline
+2025-11-12 17:02:17,748 - app_logger - load - INFO - 2025-11-12 17:02:17.748379: Connected to Hopsworks Feature Store
+2025-11-12 17:05:09,560 - app_logger - load - INFO - 2025-11-12 17:05:09.560403: Inserted 102864 rows.
+2025-11-12 17:05:14,205 - app_logger - load - WARNING - 2025-11-12 17:05:14.205104: compute_statistics() failed or skipped — 'FeatureGroup' object has no attribute 'get_commit_details'. If you are trying to access a feature, fall back on using the `get_feature` method.
+2025-11-12 17:05:14,207 - app_logger - pipeline - INFO - 2025-11-12 17:05:14.207117:Validated Data Loading completed from the pipeline

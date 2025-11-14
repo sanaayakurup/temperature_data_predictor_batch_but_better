@@ -3,9 +3,9 @@
 ##clean the data 
 ##validate the data 
 ##Load into feature store
-from feature_pipeline.extract import extract_data
-from feature_pipeline.transform import transform_data
-from feature_pipeline.load import to_feature_store
+from feature_pipeline.etl.extract import extract_data
+from feature_pipeline.etl.transform import transform_data
+from feature_pipeline.etl.load import to_feature_store
 from utils import setup_logger
 
 import pandas as pd 
