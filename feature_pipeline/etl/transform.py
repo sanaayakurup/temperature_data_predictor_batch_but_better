@@ -3,10 +3,10 @@ import numpy as np
 import os 
 from dotenv import load_dotenv
 import logging 
+from feature_pipeline.settings import SETTINGS
 
-load_dotenv()
 #Load env vars 
-logger_name=os.getenv("LOGGER_NAME")
+logger_name=SETTINGS["LOGGER_NAME"]
 my_logger = logging.getLogger(logger_name)
 
 def transform_data(data):

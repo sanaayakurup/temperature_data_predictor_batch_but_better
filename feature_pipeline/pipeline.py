@@ -6,28 +6,29 @@
 from feature_pipeline.etl.extract import extract_data
 from feature_pipeline.etl.transform import transform_data
 from feature_pipeline.etl.load import to_feature_store
-from utils import setup_logger
-
+from feature_pipeline.utils import setup_logger
+from feature_pipeline.utils import save_json
+from feature_pipeline.settings import SETTINGS
 import pandas as pd 
 import logging
 from datetime import datetime, timezone
 import os
 #set env vars for dates we want 
 from dotenv import load_dotenv
-load_dotenv()
+
 
 
 #Load env vars 
-logger_name=os.getenv("LOGGER_NAME")
-data_url=os.getenv("API_URL")
-start_date=os.getenv("START_DATE_DATA_PULL")
-api_key=os.getenv("FEATURE_STORE_API_KEY")
-project_name=os.getenv("FEATURE_STORE_PROJECT_NAME")
+logger_name=SETTINGS["LOGGER_NAME"]
+data_url=SETTINGS["API_URL"]
+start_date=SETTINGS["START_DATE_DATA_PULL"]
+api_key=SETTINGS["FEATURE_STORE_API_KEY"]
+project_name=SETTINGS["FEATURE_STORE_PROJECT_NAME"]
 my_logger=setup_logger(logger_name) 
 
-def run_etl_pipeline(data_url,start_date,api_key,project_name,version):
+def run_etl_pipeline(data_url,start_date,api_key,project_name,feature_store_version):
     my_logger.info(f"Extracting data from API.")
-    pulled_data=extract_data(data_url,start_date)
+    pulled_data,metadata=extract_data(data_url,start_date)
     my_logger.info(f"{datetime.now()}:Data Pull complete from the pipeline")
     my_logger.info(f"{datetime.now()}:Data Transformation started from the pipeline")
     transformed_data=transform_data(pulled_data)
@@ -36,7 +37,10 @@ def run_etl_pipeline(data_url,start_date,api_key,project_name,version):
     my_logger.info(f"{datetime.now()}:Data Validation started from the pipeline")
     my_logger.info(f"{datetime.now()}:Data Validation completed from the pipeline")
     my_logger.info(f"{datetime.now()}:Validated Data Loading started from the pipeline")
-    to_feature_store(transformed_data,api_key,project_name,version)
+    to_feature_store(transformed_data,api_key,project_name,feature_store_version)
+    metadata["feature_group_version"] = feature_store_version
+    save_json(metadata, file_name="feature_pipeline_metadata.json")
+
     my_logger.info(f"{datetime.now()}:Validated Data Loading completed from the pipeline")
 
 if __name__=="__main__":

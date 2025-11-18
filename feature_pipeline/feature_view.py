@@ -10,7 +10,7 @@ import logging
 from datetime import datetime, timezone 
 import pandas 
 import hopsworks
-from utils import setup_logger
+from feature_pipeline.utils import setup_logger
 import hsfs
 from typing import Optional 
 
@@ -22,3 +22,17 @@ def create_feature_store(
     """Create a new feature view version and training dataset
     based on the given feature group version and start and end datetimes.
     """
+    if feature_group_version is None:
+        feature_pipeline_metadata = utils.load_json("feature_pipeline_metadata.json")
+        feature_group_version = feature_pipeline_metadata["feature_group_version"]
+
+    if start_datetime is None or end_datetime is None:
+        feature_pipeline_metadata = utils.load_json("feature_pipeline_metadata.json")
+        start_datetime = datetime.strptime(
+            feature_pipeline_metadata["export_datetime_utc_start"],
+            feature_pipeline_metadata["datetime_format"],
+        )
+        end_datetime = datetime.strptime(
+            feature_pipeline_metadata["export_datetime_utc_end"],
+            feature_pipeline_metadata["datetime_format"],
+        )

@@ -1,21 +1,21 @@
 ##extract data for a given time frame for one region 
 import openmeteo_requests
 import pandas as pd 
-from utils import setup_logger
+from feature_pipeline.utils import setup_logger
 import requests_cache
 from retry_requests import retry
-from utils import setup_logger
+from feature_pipeline.settings import SETTINGS
 import logging
 from datetime import datetime, timezone
 import os
 #set env vars for dates we want 
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
-#Load env vars 
-logger_name=os.getenv("LOGGER_NAME")
-data_url=os.getenv("API_URL")
-start_date=os.getenv("START_DATE_DATA_PULL")
+#Load env vars -change these to use settings py 
+logger_name=SETTINGS["LOGGER_NAME"]
+data_url=SETTINGS["API_URL"]
+start_date=SETTINGS["START_DATE_DATA_PULL"]
 
 #get loger and start logging
 #my_logger=setup_logger(logger_name) 
@@ -84,13 +84,13 @@ def extract_data(data_url,start_date,all_data_or_current_hour="all"):
         #do i really need path here? I can just write it to gcp-change later
         #path_to_write=f"{all_data_or_current_hour}_{datetime.now(timezone.utc).strftime('%Y-%m-%d')}"
         #combined_df.to_csv(f'/tmp/temp_data_{path_to_write}.csv')
-        return combined_df #f'/tmp/temp_data_{path_to_write}.csv'        
+        return combined_df,params #f'/tmp/temp_data_{path_to_write}.csv'        
     except Exception as e:
         print(e)
         my_logger.info(f"{datetime.now()}:Error!:{e}")
 
 
-"""if __name__=="__main__":
-    extract_data(data_url,start_date,"all")"""
+# if __name__=="__main__":
+#     extract_data(data_url,start_date,"all")
 
 

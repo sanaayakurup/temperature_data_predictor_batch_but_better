@@ -1,0 +1,1 @@
+{"latitude": [18.5204, 43.589], "longitude": [73.8567, -79.6441], "start_date": "2020-01-01", "end_date": "2025-11-14", "hourly": ["temperature_2m", "rain", "wind_speed_10m", "pressure_msl"], "feature_group_version": 1}
