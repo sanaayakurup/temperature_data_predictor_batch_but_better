@@ -10,10 +10,10 @@ logger_name = SETTINGS["LOGGER_NAME"]
 my_logger = logging.getLogger(logger_name)
 
 
-def to_feature_store(transformed_data: pd.DataFrame, api_key, project_name, feature_group_version: int):
+def to_feature_store(transformed_data: pd.DataFrame, fs_api_key, fs_project_name, feature_group_version: int):
     """Save a pandas DataFrame to the Hopsworks Feature Store safely."""
     # Connect to Hopsworks project
-    project = hopsworks.login(api_key_value=api_key, project=project_name)
+    project = hopsworks.login(api_key_value=fs_api_key, project=fs_project_name)
     feature_store = project.get_feature_store()
     my_logger.info(f"{datetime.now()}: Connected to Hopsworks Feature Store")
 
