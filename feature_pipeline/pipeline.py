@@ -13,11 +13,6 @@ import pandas as pd
 import logging
 from datetime import datetime, timezone
 import os
-#set env vars for dates we want 
-from dotenv import load_dotenv
-
-
-
 #Load env vars 
 logger_name=SETTINGS["LOGGER_NAME"]
 data_url=SETTINGS["API_URL"]

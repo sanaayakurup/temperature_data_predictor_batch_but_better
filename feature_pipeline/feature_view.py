@@ -77,6 +77,7 @@ def create_feature_store(
     )
     #QUERY  feature store 
     ds_query = temp_fg.select_all()
+    print(ds_query)
     #Create featuer view from feature store 
     feature_view = fs.create_feature_view(
     name= f"{fs_name}_view",
